@@ -1,8 +1,8 @@
-package habr
+package internal
 
 import (
-	"FusionAPI/lib"
 	"fmt"
+	"github.com/Coolenov/Fusion-library/lib"
 	"github.com/microcosm-cc/bluemonday"
 	"github.com/mmcdole/gofeed"
 	"strings"
@@ -15,13 +15,10 @@ func HabrScraper() []lib.Post {
 
 	var posts []lib.Post
 	for i := 0; i < 100; i++ {
-		//var Tags []lib.Tag
-		//Tags = makeArrTags(feed.Items[i].Categories)
 		item := lib.Post{
-			Title:       feed.Items[i].Title,
-			Link:        feed.Items[i].Link,
-			Description: sanitizeText(feed.Items[i].Description),
-			//Tags:            Tags,
+			Title:          feed.Items[i].Title,
+			Link:           feed.Items[i].Link,
+			Description:    sanitizeText(feed.Items[i].Description),
 			Tags:           feed.Items[i].Categories,
 			Source:         "HabrRu",
 			PublishingTime: formPubTime(feed.Items[i].Published),
@@ -49,16 +46,3 @@ func formPubTime(timeStr string) int64 {
 	timestamp := timeObj.Unix()
 	return timestamp
 }
-
-//
-//func makeArrTags(tags []string) []lib.Tag {
-//	var Tags []lib.Tag
-//	for _, tag := range tags {
-//		tagObj := lib.Tag{
-//			Model: gorm.Model{},
-//			Text:  strings.ToLower(tag),
-//		}
-//		Tags = append(Tags, tagObj)
-//	}
-//	return Tags
-//}
