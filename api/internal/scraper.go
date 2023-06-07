@@ -11,7 +11,7 @@ import (
 
 func HabrScraper() []lib.Post {
 	var fp = gofeed.NewParser()
-	var feed, _ = fp.ParseURL("https://habr.com/ru/rss/all/all/?limit=100")
+	var feed, _ = fp.ParseURL("https://habr.com/ru/rss/all/all/")
 
 	var posts []lib.Post
 	for i := 0; i < 100; i++ {
@@ -24,6 +24,8 @@ func HabrScraper() []lib.Post {
 			PublishingTime: formPubTime(feed.Items[i].Published),
 			ImageUrl:       "",
 		}
+		fmt.Println(item.Title)
+
 		posts = append(posts, item)
 	}
 	return posts
