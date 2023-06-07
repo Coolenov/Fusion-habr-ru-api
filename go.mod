@@ -3,7 +3,7 @@ module Habr-ru-api
 go 1.20
 
 require (
-	github.com/Coolenov/Fusion-library v0.0.0-20230606123247-1fbe11a3f003
+	github.com/Coolenov/Fusion-library v0.0.0-20230607104853-2d96c3a115bf
 	github.com/gin-gonic/gin v1.9.1
 	github.com/microcosm-cc/bluemonday v1.0.24
 	github.com/mmcdole/gofeed v1.2.1
