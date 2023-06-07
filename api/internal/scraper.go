@@ -14,7 +14,7 @@ func HabrScraper() []types.Post {
 	var feed, _ = fp.ParseURL("https://habr.com/ru/rss/all/all/")
 
 	var posts []types.Post
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 20; i++ {
 		item := types.Post{
 			Title:          feed.Items[i].Title,
 			Link:           feed.Items[i].Link,
