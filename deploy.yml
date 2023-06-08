@@ -1,7 +1,7 @@
-- host: ${{ secret.SERVER_HOST }}
+- hosts: all
   gether_facts: true
   vars:
-    app_path      : /habr_service
+    app_path      : ./fusion-habr-ru-api
     service_name  : fusion-habr-ru-api
     container_name: habr
     
