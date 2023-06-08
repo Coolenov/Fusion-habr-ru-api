@@ -1,7 +1,9 @@
 name: Tests and Deploy
 
 on: 
-  push: "main"
+  push:
+    branches:
+      - main
 
 jobs: 
   deploy: 
@@ -17,20 +19,20 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: Publish to Registry
-        uses: docker/build-push-action
+        uses: docker/build-push-action@v2
         with: 
           context: .
           push   : true
           tags   : coolenov/fusion-habr-ru-api:latest
           
       - name: Ansible deploy
-        uses: dawidd6/action-ansible-blaybook
+        uses: dawidd6/action-ansible-blaybook@v2
         with: 
           playbook: deploy.yml
           directory: .
           key      : ${{ secrets.MY_KEY }}
-          inventory:
+          inventory: |
             [all]
             kartservices.com ansible_ssh_port-${{secrets.SERVER_PORT}} ansible_ssh_user=${{secrets.SERVER_USERNAME}} ansible_become_user=${{secrets.ANSIBLE_BECOME_USER}} ansible_become_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
-          options: 
+          options: |
             --verbose
