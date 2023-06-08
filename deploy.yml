@@ -1,5 +1,5 @@
 - hosts: all
-  gether_facts: true
+  gather_facts: true
   vars:
     app_path      : ./fusion-habr-ru-api
     service_name  : fusion-habr-ru-api
@@ -12,8 +12,7 @@
         state: "directory"
         owner: "noteadmin"
         group: "noteadmin"
-        mode : 0775
-    
+        mode : 0775 
       become       : yes
       become_method: sudo
       
