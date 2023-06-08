@@ -24,8 +24,6 @@ func HabrScraper() []types.Post {
 			PublishingTime: formPubTime(feed.Items[i].Published),
 			ImageUrl:       "",
 		}
-		fmt.Println(item.Title)
-
 		posts = append(posts, item)
 	}
 	return posts
@@ -44,7 +42,7 @@ func formPubTime(timeStr string) int64 {
 	timeLayout := "Mon, 02 Jan 2006 15:04:05 MST"
 	timeObj, err := time.Parse(timeLayout, timeString)
 	if err != nil {
-		fmt.Println("Ошибка при парсинге времени:", err)
+		fmt.Println("error time parsing", err)
 	}
 	timestamp := timeObj.Unix()
 	return timestamp
