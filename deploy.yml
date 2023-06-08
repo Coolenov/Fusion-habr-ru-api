@@ -17,6 +17,7 @@
       
     - name : "stop service"
       shell: sudo docker stop {{container_name}}
+      ignore_errors: yes
       
     - name : "pull image"
       shell: sudo docker pull coolenov/{{service_name}}:latest
