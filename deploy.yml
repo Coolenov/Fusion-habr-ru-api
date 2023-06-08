@@ -16,14 +16,14 @@
       become_method: sudo
       
     - name : "stop service"
-      shell: docker stop {{container_name}}
+      shell: sudo docker stop {{container_name}}
       
     - name : "pull image"
-      shell: docker pull coolenov/{{service_name}}:latest
+      shell: sudo docker pull coolenov/{{service_name}}:latest
       
     - name : "start service"
-      shell: docker run --rm -d --name habr coolenov/{{service_name}}:latest
+      shell: sudo docker run --rm -d --name habr coolenov/{{service_name}}:latest
       
     - name : "connect service to docker-network"
-      shell: docker network connect net habr
+      shell: sudo docker network connect net habr
       
