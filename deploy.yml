@@ -11,8 +11,6 @@
       file:
         path : "{{ app_path }}/"
         state: "directory"
-        owner: "noteadmin"
-        group: "noteadmin"
         mode : 0775 
       become       : yes
       become_method: sudo
