@@ -23,13 +23,13 @@ jobs:
           push   : true
           tags   : coolenov/fusion-habr-ru-api:latest
           
-      -name: Ansible deploy
-       uses: dawidd6/action-ansible-blaybook
-       with: 
-         playbook: deploy.yml
-         directory: .
-         key      : ${{ secrets.MY_KEY }}
-         inventory:
+      - name: Ansible deploy
+        uses: dawidd6/action-ansible-blaybook
+        with: 
+          playbook: deploy.yml
+          directory: .
+          key      : ${{ secrets.MY_KEY }}
+          inventory:
             [all]
             kartservices.com ansible_ssh_port-${{secrets.SERVER_PORT}} ansible_ssh_user=${{secrets.SERVER_USERNAME}} ansible_become_user=${{secrets.ANSIBLE_BECOME_USER}} ansible_become_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
         options: 
