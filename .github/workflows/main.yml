@@ -26,13 +26,13 @@ jobs:
           tags   : coolenov/fusion-habr-ru-api:latest
           
       - name: Run Ansible playbook
-          uses: dawidd6/action-ansible-playbook@v2.6.1
-          with: 
-            playbook: deploy.yml
-            directory: ./
-            key      : ${{ secrets.MY_KEY }}
-            inventory: |
-              [all]
-              kartservices.com ansible_ssh_port-${{secrets.SERVER_PORT}} ansible_ssh_user=${{secrets.SERVER_USERNAME}} ansible_become_user=${{secrets.ANSIBLE_BECOME_USER}} ansible_become_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
-            options: |
-              --verbose
+        uses: dawidd6/action-ansible-playbook@v2.6.1
+        with: 
+          playbook: deploy.yml
+          directory: ./
+          key      : ${{ secrets.MY_KEY }}
+          inventory: |
+            [all]
+            kartservices.com ansible_ssh_port-${{secrets.SERVER_PORT}} ansible_ssh_user=${{secrets.SERVER_USERNAME}} ansible_become_user=${{secrets.ANSIBLE_BECOME_USER}} ansible_become_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
+          options: |
+            --verbose
