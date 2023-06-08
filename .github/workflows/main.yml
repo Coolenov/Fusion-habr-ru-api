@@ -38,4 +38,4 @@ jobs:
             test_server ansible_host=${{secrets.SERVER_HOST}} ansible_user=${{secrets.ANSIBLE_BECOME_USER}} ansible_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
           options: |
             --verbose
-          ansible_ssh_common_args: '-o StrictHostKeyChecking=yes'
+            --inventory .hosts
