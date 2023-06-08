@@ -35,7 +35,6 @@ jobs:
           key      : ${{ secrets.MY_KEY }}
           inventory: |
             [all]
-#            my_service ansible_ssh_port=${{secrets.SERVER_PORT}} ansible_ssh_user=${{secrets.SERVER_USERNAME}} ansible_become_user=${{secrets.ANSIBLE_BECOME_USER}} ansible_become_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
             test_server ansible_host=${{secrets.SERVER_HOST}} ansible_user={{secrets.ANSIBLE_BECOME_USER}} ansible_password=${{secrets.ANSIBLE_BECOME_PASSWORD}}
           options: |
             --verbose
