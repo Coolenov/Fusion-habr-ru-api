@@ -1,7 +1,7 @@
-- host: ${{ secret.SERVER_HOST }}
-  gether_facts: true
+- hosts: all
+  gather_facts: true
   vars:
-    app_path      : /habr_service
+    app_path      : ./fusion-habr-ru-api
     service_name  : fusion-habr-ru-api
     container_name: habr
     
@@ -12,8 +12,7 @@
         state: "directory"
         owner: "noteadmin"
         group: "noteadmin"
-        mode : 0775
-    
+        mode : 0775 
       become       : yes
       become_method: sudo
       
