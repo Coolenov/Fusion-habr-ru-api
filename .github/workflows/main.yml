@@ -1,7 +1,7 @@
 name: Tests and Deploy
 
 on: 
-  push: "main
+  push: "main"
 
 jobs: 
   deploy: 
