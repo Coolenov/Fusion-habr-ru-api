@@ -1,6 +1,4 @@
 # Fusion-habr-ru-api
 
-A Fusion project service
-
-1. Scraper web-page Habr.com/ru
-2. Api for communication with Fusion-api-collector
+Status of last Deployment:<br>
+<img src="https://github.com/Coolenov/Fusion-api/actions/workflows/main.yml/badge.svg"><br>
